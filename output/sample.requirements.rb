@@ -1,0 +1,8 @@
+TestCases.call("A user with a role of System Admin in the system Can Create a project")
+TestCases.call("A user with a role of User in the system Cannot Create a project")
+TestCases.call("Given my username is rstark and my password is w1nterf3ll, I Can Log In with the following credentials: rstark, w1nt3rf3ll")
+TestCases.call("Given my username is rstark and my password is w1nterf3ll, I Cannot Log In with the following credentials: RSTARK, w1nt3rf3ll")
+TestCases.call("A user who is not a member of a project cannot view its contents")
+TestCases.call("A new project with attributes Awesome, Another project is Valid")
+TestCases.call("A new project with attributes (None), Another project is Invalid")
+TestCases.call("A new project with attributes Awesome, (None) is Invalid")
