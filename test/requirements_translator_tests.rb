@@ -164,4 +164,26 @@ EOF
     assert_equal output, RequirementTranslator.translate(input)
   end
 
+
+  def test_example_with_empty_cell
+    input = <<-EOF
+  Requirement:
+    A user with a role of <Role> in the system <Can or Cannot Create> a project
+
+    Examples:
+      --------------------------------
+      | Role  | Can or Cannot Create |
+      |-------|----------------------|
+      |       | Can Create           |
+      | User  | Cannot Create        |
+      --------------------------------
+
+EOF
+    output = <<-EOF
+TestCases.call('A user with a role of  in the system Can Create a project')
+TestCases.call('A user with a role of User in the system Cannot Create a project')
+EOF
+    assert_equal output, RequirementTranslator.translate(input)
+  end
+
 end

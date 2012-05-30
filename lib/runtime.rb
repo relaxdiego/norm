@@ -19,9 +19,12 @@ module Norm
     def initialize(directives_path)
       @directives_path = directives_path
 
-      @utilities_path  = File.join(directives_path, 'utilities')
-      @test_cases_path = File.join(directives_path, 'test_cases')
-      @output_path     = File.join(directives_path, '..', 'output')
+      @utilities_path    = File.join(directives_path, 'utilities')
+      @test_cases_path   = File.join(directives_path, 'test_cases')
+      @requirements_path = File.join(directives_path, 'test_cases')
+      @output_path       = File.join(directives_path, '..', 'output')
+
+      ensure_output_dir
     end
 
     def load_utilities(path = utilities_path)
@@ -42,9 +45,21 @@ module Norm
       end
     end
 
-    def process_test_cases
-      ensure_output_dir
+    def process_requirements
+      Dir.entries(requirements_path).each do |file_name|
+        /\w+\.requirements$/.match(file_name) do |match|
+          file     = File.open(File.join(requirements_path, match[0]), 'rb')
+          contents = RequirementsTranslator.translate(file.read)
+          file.close
 
+          file = File.new(File.join(output_path, match[0] + ".rb"), 'w')
+          file.write(contents)
+          file.close
+        end
+      end
+    end
+
+    def process_test_cases
       Dir.entries(test_cases_path).each do |file_name|
         /\w+\.test_cases$/.match(file_name) do |match|
           file     = File.open(File.join(test_cases_path, match[0]), 'rb')

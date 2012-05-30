@@ -62,7 +62,7 @@ module Norm
           row_str = chunk[/\A(\s*[\|-].*)/, 1]
 
           if row_str && row_str !~ /(\|-+)+\|/ && row_str !~ /-+/
-            row = row_str.split('|').map{ |i| i.strip }.select{|i| i.size > 0}
+            row = row_str.strip[1..-1].split('|').map{|s| s.strip}
           end
 
           if in_first_row && row
