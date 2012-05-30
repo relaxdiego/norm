@@ -1,4 +1,4 @@
-Test:
+Test Case:
   A user with a role of (.+) in the system can create a project
 
   Variables:
@@ -28,7 +28,7 @@ Test:
     * Delete my username at exit
 
 
-Test:
+Test Case:
   A user with a role of (.+) in the system cannot create a project
 
   Variables:
