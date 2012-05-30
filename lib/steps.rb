@@ -29,7 +29,7 @@ module Norm
       end
 
       if matched_items.size == 1
-        puts "    #{ YELLOW }Step #{ GREEN }#{string}#{ NORMAL }"
+        puts "    #{ GREEN }* #{string}#{ NORMAL }"
         item = matched_items[0]
         vars = item[:regex].match(string)
 
@@ -41,7 +41,7 @@ module Norm
       elsif matched_items.size > 1
         raise "Ambiguous step match"
       else
-        puts "    #{ YELLOW }Step #{ RED }#{ string } (undefined)#{ NORMAL }"
+        puts "    #{ RED }* #{ string } (undefined)#{ NORMAL }"
       end
     end
   end

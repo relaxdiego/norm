@@ -29,13 +29,13 @@ module Norm
       end
 
       if matches.size == 1
-        puts "\n  #{ YELLOW }TestCase #{ GREEN }#{string}#{ NORMAL }"
+        puts "\n  #{ YELLOW }Test Case: #{ GREEN }#{string}#{ NORMAL }"
         match = matches[0]
         match[:block].call(match[:regex], string)
       elsif matches.size > 1
         raise "Ambiguous test case match"
       else
-        puts "\n  #{ YELLOW }TestCase #{ RED }#{string} (undefined)#{ NORMAL }"
+        puts "\n  #{ YELLOW }Test Case: #{ RED }#{string} (undefined)#{ NORMAL }"
       end
     end
   end

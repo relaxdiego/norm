@@ -6,3 +6,5 @@ include Norm
 directives_path = File.expand_path("../directives", __FILE__)
 runtime         = Runtime.new(directives_path)
 runtime.start
+
+puts "\nEND OF TESTS\n"
