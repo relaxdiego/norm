@@ -1,0 +1,51 @@
+Test Case:
+  A user with a role of (.+) in the system can create a project
+
+  Variables:
+    * Role Name    = $1
+    * Project Name = 'test'
+    * My Username  = my_username
+    * My Password  = my_password
+
+  Preconditions:
+    * I have a role of <Role Name> in the system
+
+  Script:
+    * Click the Logout button if I'm currently logged in
+    * Fill in the Username field with <My Username>
+    * Fill in the Password field with <My Password>
+    * Click the Login button
+    * Click the Projects link
+    * Click the New Project button
+    * Fill in the Project Name field with <Project Name>
+    * Fill in the Project Description field with 'Test project'
+    * Click the Create Project button
+    * A project named <Project Name> should be visible in the page
+    * The project should exist in the backend cloud
+
+  Cleanup:
+    * Delete the project named <Project Name> if it exists
+    * Delete my username at exit
+
+
+Test Case:
+  A user with a role of (.+) in the system cannot create a project
+
+  Variables:
+    * Role Name = $1
+    * My Username  = my_username()
+    * My Password  = my_password()
+
+  Preconditions:
+    * I have a role of <Role Name> in the system
+
+  Script:
+    * Click the Logout button if I'm currently logged in
+    * Fill in the Username field with <My Username>
+    * Fill in the Password field with <My Password>
+    * Click the Login button
+    * Click the Projects link
+    * The New Project button should not exist
+
+  Cleanup:
+    * Delete my username at exit
