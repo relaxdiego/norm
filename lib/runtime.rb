@@ -1,5 +1,6 @@
 require_relative 'steps'
 require_relative 'test_case_translator'
+require_relative 'requirement_translator'
 require_relative 'test_cases'
 
 module Norm
@@ -21,10 +22,22 @@ module Norm
 
       @utilities_path    = File.join(directives_path, 'utilities')
       @test_cases_path   = File.join(directives_path, 'test_cases')
-      @requirements_path = File.join(directives_path, 'test_cases')
+      @requirements_path = File.join(directives_path, 'requirements')
       @output_path       = File.join(directives_path, '..', 'output')
 
       ensure_output_dir
+    end
+
+    def load_requirements
+      Dir.entries(output_path).each do |file_name|
+        require_relative File.join(output_path, file_name) if file_name =~ /^.+\.requirements\.rb$/
+      end
+    end
+
+    def load_test_cases
+      Dir.entries(output_path).each do |file_name|
+        require_relative File.join(output_path, file_name) if file_name =~ /^.+\.test_cases\.rb$/
+      end
     end
 
     def load_utilities(path = utilities_path)
@@ -39,17 +52,11 @@ module Norm
       end
     end
 
-    def load_test_cases
-      Dir.entries(output_path).each do |file_name|
-        require_relative File.join(output_path, file_name) if file_name =~ /^.+\.test_cases\.rb$/
-      end
-    end
-
     def process_requirements
       Dir.entries(requirements_path).each do |file_name|
         /\w+\.requirements$/.match(file_name) do |match|
           file     = File.open(File.join(requirements_path, match[0]), 'rb')
-          contents = RequirementsTranslator.translate(file.read)
+          contents = RequirementTranslator.translate(file.read)
           file.close
 
           file = File.new(File.join(output_path, match[0] + ".rb"), 'w')
@@ -78,6 +85,9 @@ module Norm
 
       process_test_cases
       load_test_cases
+
+      process_requirements
+      load_requirements
     end
 
     private
