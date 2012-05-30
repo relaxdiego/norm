@@ -6,10 +6,8 @@ Create a Project
 
     Examples:
       | Role            | Can or Cannot Create |
-      |-----------------|----------------------|
       | System Admin    | Can Create           |
       | User            | Cannot Create        |
-
 
   Requirement:
     Given my username is rstark and my password is w1nt3rf3ll, I <Can or Cannot Log in>
@@ -25,18 +23,14 @@ Create a Project
   Requirement:
     A user who is not a member of a project cannot view its contents
 
-    Notes:
-      It's important to note that the quick brown fox jumps over the lazy
-      dog. Lorem ipsum dolor sit emet do doom do doom.
-
-
   Requirement:
     A new project with attributes <Name>, <Description> is <Valid or Not>
 
     Examples:
+      ----------------------------------------------------------------
       | Name    | Description     | Valid or Not | Remarks           |
       |---------|-----------------|--------------|-------------------|
       | Awesome | Another project | Valid        |                   |
       | (None)  | Another project | Invalid      | Empty Name        |
       | Awesome | (None)          | Invalid      | Empty Description |
-
+      ----------------------------------------------------------------
