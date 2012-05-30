@@ -31,6 +31,11 @@ module Norm
 
     def ensure_output_dir
       Dir.mkdir(output_path) unless Dir.exists?(output_path)
+
+      Dir.entries(output_path).each do |file_name|
+        next if file_name =~ /^..?$/
+        File.delete(File.join(output_path, file_name))
+      end
     end
   end
 
