@@ -51,7 +51,7 @@ module Norm
             in_cleanup = false
 
           if type == TEST_CASE
-            ruby_code << "test_cases.add(/^"
+            ruby_code << "TestCases.add(/^"
             in_header = true
           elsif type == VARIABLES
             in_variables = true
@@ -78,7 +78,7 @@ module Norm
           position += variable_def.size
         elsif (in_preconditions || in_script || in_cleanup) && step = chunk[/\A(\s*\**\s*.+)/, 1]
           str = step.gsub(/\A\s*\**\s*/, '')
-          ruby_code << "    steps.call(\"#{ translate_vars(str, variables) }\")\n"
+          ruby_code << "    Steps.call(\"#{ translate_vars(str, variables) }\")\n"
           position += step.size
         end
 

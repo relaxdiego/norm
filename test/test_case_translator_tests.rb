@@ -12,7 +12,7 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of User in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of User in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
@@ -36,7 +36,7 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
@@ -60,7 +60,7 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
@@ -68,7 +68,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
   end
 end
 
-test_cases.add(/^A user cannot create a project$/i) do |regex, string|
+TestCases.add(/^A user cannot create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
@@ -92,11 +92,11 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system")
+    Steps.call("I have a role of " + $1.to_s + " in the system")
   ensure
   end
 end
@@ -119,12 +119,12 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system " + $1.to_s + "")
-    steps.call("I have a role of " + $1.to_s + " in the system " + $1.to_s + "")
+    Steps.call("I have a role of " + $1.to_s + " in the system " + $1.to_s + "")
+    Steps.call("I have a role of " + $1.to_s + " in the system " + $1.to_s + "")
   ensure
   end
 end
@@ -147,11 +147,11 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system " + 'test'.to_s + "")
+    Steps.call("I have a role of " + $1.to_s + " in the system " + 'test'.to_s + "")
   ensure
   end
 end
@@ -170,11 +170,11 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of System Admin")
+    Steps.call("I have a role of System Admin")
   ensure
   end
 end
@@ -193,11 +193,11 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of System Admin")
+    Steps.call("I have a role of System Admin")
   ensure
   end
 end
@@ -219,13 +219,13 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of System Admin")
+    Steps.call("I have a role of System Admin")
   ensure
-    steps.call("Delete my username at exit")
+    Steps.call("Delete my username at exit")
   end
 end
 EOF
@@ -268,25 +268,25 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system")
-    steps.call("Click the Logout button if I'm currently logged in")
-    steps.call("Fill in the Username field with " + my_username.to_s + "")
-    steps.call("Fill in the Password field with " + my_password.to_s + "")
-    steps.call("Click the Login button")
-    steps.call("Click the Projects link")
-    steps.call("Click the New Project button")
-    steps.call("Fill in the Project Name field with " + 'test'.to_s + "")
-    steps.call("Fill in the Project Description field with 'Test project'")
-    steps.call("Click the Create Project button")
-    steps.call("A project named " + 'test'.to_s + " should be visible in the page")
-    steps.call("The project should exist in the backend cloud")
+    Steps.call("I have a role of " + $1.to_s + " in the system")
+    Steps.call("Click the Logout button if I'm currently logged in")
+    Steps.call("Fill in the Username field with " + my_username.to_s + "")
+    Steps.call("Fill in the Password field with " + my_password.to_s + "")
+    Steps.call("Click the Login button")
+    Steps.call("Click the Projects link")
+    Steps.call("Click the New Project button")
+    Steps.call("Fill in the Project Name field with " + 'test'.to_s + "")
+    Steps.call("Fill in the Project Description field with 'Test project'")
+    Steps.call("Click the Create Project button")
+    Steps.call("A project named " + 'test'.to_s + " should be visible in the page")
+    Steps.call("The project should exist in the backend cloud")
   ensure
-    steps.call("Delete the project named " + 'test'.to_s + " if it exists")
-    steps.call("Delete my username at exit")
+    Steps.call("Delete the project named " + 'test'.to_s + " if it exists")
+    Steps.call("Delete my username at exit")
   end
 end
 EOF
@@ -349,40 +349,40 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system")
-    steps.call("Click the Logout button if I'm currently logged in")
-    steps.call("Fill in the Username field with " + my_username.to_s + "")
-    steps.call("Fill in the Password field with " + my_password.to_s + "")
-    steps.call("Click the Login button")
-    steps.call("Click the Projects link")
-    steps.call("Click the New Project button")
-    steps.call("Fill in the Project Name field with " + 'test'.to_s + "")
-    steps.call("Fill in the Project Description field with 'Test project'")
-    steps.call("Click the Create Project button")
-    steps.call("A project named " + 'test'.to_s + " should be visible in the page")
-    steps.call("The project should exist in the backend cloud")
+    Steps.call("I have a role of " + $1.to_s + " in the system")
+    Steps.call("Click the Logout button if I'm currently logged in")
+    Steps.call("Fill in the Username field with " + my_username.to_s + "")
+    Steps.call("Fill in the Password field with " + my_password.to_s + "")
+    Steps.call("Click the Login button")
+    Steps.call("Click the Projects link")
+    Steps.call("Click the New Project button")
+    Steps.call("Fill in the Project Name field with " + 'test'.to_s + "")
+    Steps.call("Fill in the Project Description field with 'Test project'")
+    Steps.call("Click the Create Project button")
+    Steps.call("A project named " + 'test'.to_s + " should be visible in the page")
+    Steps.call("The project should exist in the backend cloud")
   ensure
-    steps.call("Delete the project named " + 'test'.to_s + " if it exists")
-    steps.call("Delete my username at exit")
+    Steps.call("Delete the project named " + 'test'.to_s + " if it exists")
+    Steps.call("Delete my username at exit")
   end
 end
 
-test_cases.add(/^A user with a role of (.+) in the system cannot create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system cannot create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system")
-    steps.call("Click the Logout button if I'm currently logged in")
-    steps.call("Fill in the Username field with " + my_username.to_s + "")
-    steps.call("Fill in the Password field with " + my_password.to_s + "")
-    steps.call("Click the Login button")
-    steps.call("The Projects link should not exist")
+    Steps.call("I have a role of " + $1.to_s + " in the system")
+    Steps.call("Click the Logout button if I'm currently logged in")
+    Steps.call("Fill in the Username field with " + my_username.to_s + "")
+    Steps.call("Fill in the Password field with " + my_password.to_s + "")
+    Steps.call("Click the Login button")
+    Steps.call("The Projects link should not exist")
   ensure
-    steps.call("Delete my username at exit")
+    Steps.call("Delete my username at exit")
   end
 end
 EOF
@@ -422,27 +422,27 @@ Test Case:
 EOF
 
     target_file = <<-EOF
-test_cases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system can create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
-    steps.call("I have a role of " + $1.to_s + " in the system")
-    steps.call("Click the Logout button if I'm currently logged in")
-    steps.call("Fill in the Username field with " + my_username.to_s + "")
-    steps.call("Fill in the Password field with " + my_password.to_s + "")
-    steps.call("Click the Login button")
-    steps.call("Click the Projects link")
-    steps.call("Click the New Project button")
-    steps.call("Fill in the Project Name field with " + 'test'.to_s + "")
-    steps.call("Fill in the Project Description field with 'Test project'")
-    steps.call("Click the Create Project button")
-    steps.call("A project named " + 'test'.to_s + " should be visible in the page")
-    steps.call("The project should exist in the backend cloud")
+    Steps.call("I have a role of " + $1.to_s + " in the system")
+    Steps.call("Click the Logout button if I'm currently logged in")
+    Steps.call("Fill in the Username field with " + my_username.to_s + "")
+    Steps.call("Fill in the Password field with " + my_password.to_s + "")
+    Steps.call("Click the Login button")
+    Steps.call("Click the Projects link")
+    Steps.call("Click the New Project button")
+    Steps.call("Fill in the Project Name field with " + 'test'.to_s + "")
+    Steps.call("Fill in the Project Description field with 'Test project'")
+    Steps.call("Click the Create Project button")
+    Steps.call("A project named " + 'test'.to_s + " should be visible in the page")
+    Steps.call("The project should exist in the backend cloud")
   ensure
   end
 end
 
-test_cases.add(/^A user with a role of (.+) in the system cannot create a project$/i) do |regex, string|
+TestCases.add(/^A user with a role of (.+) in the system cannot create a project$/i) do |regex, string|
   regex.match(string)
 
   begin
