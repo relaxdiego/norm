@@ -9,19 +9,6 @@ Create a Project
       | System Admin    | Can Create           |
       | User            | Cannot Create        |
 
-  Requirement:
-    Given my username is rstark and my password is w1nt3rf3ll, I <Can or Cannot Log In>
-    with the following credentials: <Username>, <Password>
-
-    Examples:
-      | Username  | Password   | Can or Cannot Log In | Reason                                                       |
-      |-----------|------------|----------------------|--------------------------------------------------------------|
-      | rstark    | w1nt3rf3ll | Can Log In           |                                                              |
-      | RSTARK    | w1nt3rf3ll | Cannot Log In        | Username is case sensitive (This is an OpenStack constraint) |
-
-
-  Requirement:
-    A user who is not a member of a project cannot view its contents
 
   Requirement:
     A new project with attributes <Name>, <Description> is <Valid or Not>
