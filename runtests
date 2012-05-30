@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+path = File.expand_path("../test", __FILE__)
+
+$:.unshift path
+
+Dir.entries(path).each do |file_name|
+  require_relative File.join(path, file_name) if file_name =~ /^\w+_tests\.rb$/
+end
