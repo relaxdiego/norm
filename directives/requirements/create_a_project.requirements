@@ -10,7 +10,7 @@ Create a Project
       | User            | Cannot Create        |
 
   Requirement:
-    Given my username is rstark and my password is w1nt3rf3ll, I <Can or Cannot Log in>
+    Given my username is rstark and my password is w1nt3rf3ll, I <Can or Cannot Log In>
     with the following credentials: <Username>, <Password>
 
     Examples:
