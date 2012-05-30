@@ -15,11 +15,13 @@ Test Case:
     * Fill in the Username field with <My Username>
     * Fill in the Password field with <My Password>
     * Click the Login button
+
     * Click the Projects link
     * Click the New Project button
     * Fill in the Project Name field with <Project Name>
     * Fill in the Project Description field with 'Test project'
     * Click the Create Project button
+
     * A project named <Project Name> should be visible in the page
     * The project should exist in the backend cloud
 

@@ -1,7 +1,7 @@
 def my_username
-  'test'
+  'jdoe'
 end
 
 def my_password
-  'test'
+  '123qwe'
 end
