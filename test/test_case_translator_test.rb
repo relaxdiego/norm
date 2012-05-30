@@ -19,7 +19,7 @@ test_cases.add(/^A user with a role of User in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_multiline_test_case_name
@@ -43,7 +43,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_multiple_test_cases
@@ -74,7 +74,7 @@ test_cases.add(/^A user cannot create a project$/i) do |regex, string|
   end
 end
 EOF
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_variable_substitution
@@ -100,7 +100,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_variable_substitution_2
@@ -128,7 +128,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_multiple_variable_substitution
@@ -155,7 +155,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_preconditions_section
@@ -178,7 +178,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_script_section
@@ -201,7 +201,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_cleanup_section
@@ -228,7 +228,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_full_test_case_translation
@@ -289,7 +289,7 @@ test_cases.add(/^A user with a role of (.+) in the system can create a project$/
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_translation_of_two_full_test_cases
@@ -385,7 +385,7 @@ test_cases.add(/^A user with a role of (.+) in the system cannot create a projec
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 
   def test_translation_of_two_incomplete_tests
@@ -449,6 +449,6 @@ test_cases.add(/^A user with a role of (.+) in the system cannot create a projec
 end
 EOF
 
-    assert_equal target_file, TestCaseTranslator.new.translate(source_file)
+    assert_equal target_file, Norm::TestCaseTranslator.translate(source_file)
   end
 end
