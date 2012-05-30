@@ -2,6 +2,7 @@ require_relative 'steps'
 require_relative 'test_case_translator'
 require_relative 'requirement_translator'
 require_relative 'test_cases'
+require_relative 'requirements'
 
 module Norm
 

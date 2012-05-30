@@ -4,12 +4,13 @@ require "requirement_translator"
 class RequirementTranslatorTests < Test::Unit::TestCase
   include Norm
 
-  def test_ignore_header
+  def test_header
     input = <<-EOF
 Create a Project
 ================
 EOF
     output = <<-EOF
+Requirements.add('Create a Project')
 EOF
     assert_equal output, RequirementTranslator.translate(input)
   end
@@ -23,6 +24,7 @@ Create a Project
     A user who is not a member of a project cannot view its contents
 EOF
     output = <<-EOF
+Requirements.add('Create a Project')
 TestCases.call('A user who is not a member of a project cannot view its contents')
 EOF
     assert_equal output, RequirementTranslator.translate(input)
@@ -40,6 +42,7 @@ Create a Project
     AAAA user who is a member of a project can view its contents
 EOF
     output = <<-EOF
+Requirements.add('Create a Project')
 TestCases.call('A user who is not a member of a project cannot view its contents')
 TestCases.call('AAAA user who is a member of a project can view its contents')
 EOF

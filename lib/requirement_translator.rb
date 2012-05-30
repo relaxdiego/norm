@@ -78,6 +78,8 @@ module Norm
           end
           position += row_str.size
         elsif file_header = chunk[/\A(.*?\n=+)/, 1]
+          requirements_title = file_header.gsub(/\n=+/, '')
+          ruby_code << "Requirements.add('#{ requirements_title }')\n"
           position += file_header.size
         end
         position += 1
