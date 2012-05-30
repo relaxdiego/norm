@@ -6,6 +6,3 @@ include Norm
 directives_path = File.expand_path("../directives", __FILE__)
 runtime         = Runtime.new(directives_path)
 runtime.start
-
-TestCases.call "A user with a role of System Admin in the system can create a project"
-TestCases.call "A user with a role of User in the system can create a project"
