@@ -1,7 +1,7 @@
 require "test_helper"
 require "test_case_translator"
 
-class TestCaseTranslatorTest < Test::Unit::TestCase
+class TestCaseTranslatorTests < Test::Unit::TestCase
   include Norm
 
   def test_single_line_test_case_name
