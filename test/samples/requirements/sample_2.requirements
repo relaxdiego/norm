@@ -1,0 +1,36 @@
+Create a Project
+================
+
+  Requirement:
+    A user with a role of <Role> in the system <Can or Cannot Create> a project
+
+    Examples:
+      | Role            | Can or Cannot Create |
+      | System Admin    | Can Create           |
+      | User            | Cannot Create        |
+
+  Requirement:
+    Given my username is rstark and my password is w1nt3rf3ll, I <Can or Cannot Log in>
+    with the following credentials: <Username>, <Password>
+
+    Examples:
+      | Username  | Password   | Can or Cannot Log In | Reason                                                       |
+      |-----------|------------|----------------------|--------------------------------------------------------------|
+      | rstark    | w1nt3rf3ll | Can Log In           |                                                              |
+      | RSTARK    | w1nt3rf3ll | Cannot Log In        | Username is case sensitive (This is an OpenStack constraint) |
+
+
+  Requirement:
+    A user who is not a member of a project cannot view its contents
+
+  Requirement:
+    A new project with attributes <Name>, <Description> is <Valid or Not>
+
+    Examples:
+      ----------------------------------------------------------------
+      | Name    | Description     | Valid or Not | Remarks           |
+      |---------|-----------------|--------------|-------------------|
+      | Awesome | Another project | Valid        |                   |
+      | (None)  | Another project | Invalid      | Empty Name        |
+      | Awesome | (None)          | Invalid      | Empty Description |
+      ----------------------------------------------------------------
