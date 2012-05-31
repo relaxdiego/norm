@@ -1,0 +1,59 @@
+My original email to the Cucumber mailing list
+
+Here's a proof of concept framework that I wrote the past couple of days to
+illustrate the benefits of natural language in test scripts.
+
+NOTE: This is an executable application, not just a bunch of text files. It also
+has unit tests to keep out the bugs that I know of.
+
+We start with listing the requirements which looks something like the feature
+files but not exactly:
+
+https://github.com/relaxdiego/norm/blob/master/directives/requirements/create_a_project.requirements
+
+The difference with this and feature files apart from the filename extension is
+that it doesn't require Given/When/Then keywords. The requirement declaration can be written in free form, using multiple lines if desired. Here's a multi-line example:
+
+https://github.com/relaxdiego/norm/blob/master/directives/requirements/log_in.requirements
+
+Note that you can optionally add borders and header separators for the example
+tables. Also note that you only need to use the 'Requirement:' keyword and have
+no need for a 'Requirement Outline:' keyword. That is, you can use the
+'Requirement' keyword for formats that are similar to 'Scenario' and 'Scenario Outline'
+in the latest version of Cucumber.
+
+That's for the requirement level. Now for the test script level:
+
+Each requirement can be matched by any of the defined test scripts. For
+create_a_project.requirements, its corresponding test scripts may be found at:
+
+https://github.com/relaxdiego/norm/blob/master/directives/test_cases/create_a_project.test_cases
+
+Test Case files have a different syntax from Requirements files. For instance:
+
+* Test cases contain three 4 sections: Variables (optional), Setup (optional),
+  Script, and Cleanup (optional)
+* The Cleanup section will execute no matter what happens in the preceding sections
+* Lines cannot break
+* Lines may optionally begin with an asterisk
+* Variables can be assigned a value through regex match variables ($1, $2, etc),
+  literals, and functions
+* Variables can be used in the Setup, Script, and Cleanup section
+
+Finally, the steps level
+
+Each line in the Setup, Script, and Cleanup section of a test script can be
+matched by a step defined in the `utilities` folder. For example:
+
+https://github.com/relaxdiego/norm/blob/master/directives/utilities/steps/user_steps.rb
+
+This part is pretty much the same as how steps are defined in Cucumber.
+
+Please note that I have no plans for maintaining this proof of concept. It's
+just meant to illustrate how it might 'feel' if Cucumber implemented this
+feature. For more information on how to play with Norm, please see the readme
+at https://github.com/relaxdiego/norm
+
+Regards,
+
+Mark

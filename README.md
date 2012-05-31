@@ -6,7 +6,7 @@ defined by the book Specification by Example.
 
 Prerequisites
 -------------
-  * Ruby 1.9.3p125 and above
+  * Ruby 1.9.3-p125 and above
 
 Installation
 ------------
@@ -14,7 +14,7 @@ Installation
 
 How to give it a try
 --------------------
-Use `ruby norm` to execute the documentation. Use `ruby runtests` to run the tests
+Use `ruby norm` to execute the documentation. Use `ruby runtests` to test the framework itself.
 
 Directory Structure
 -------------------
